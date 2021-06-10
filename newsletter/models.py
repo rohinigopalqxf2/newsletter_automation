@@ -3,7 +3,7 @@ from newsletter import app
 
 db = SQLAlchemy(app)
 
-class articles(db.Model):
+class Articles(db.Model):
 
    __tablename__ = 'Articles'
 
@@ -18,3 +18,5 @@ class articles(db.Model):
     self.title = title
     self.description = description
     self.time = time
+
+db.create_all()
