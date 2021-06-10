@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-     <meta charset="utf-8">
-     <title>Newsletter articles"</title>
-</head>
-<body>
-<h2>Newsletter articles</h2>
-<form action="{{ request.path }}" method = "post">
-  <p>URL <input type = "text" name = "URL" /></p>
-  <p>Title <input type = "text" name = "Title" /></p>
-  <p>Description <input type = "text" name = "Description" /></p>
-  <p>Time <input type = "time" name = "Time" /></p>
-  <p>Category <input type = "text" name = "Category" /></p>
-  <input type = "submit" value = "Submit" />
-</form> 
-</body>
+<html>
+   <body>
+
+      <h3>Newsletter articles</h3>
+      <hr/>
+
+      {%- for category, message in get_flashed_messages(with_categories = true) %}
+         <div class = "alert alert-danger">
+            {{ message }}
+         </div>
+      {%- endfor %}
+
+      <form action = "{{ request.path }}" method = "post">
+         <label for = "name">url</label><br>
+         <input type = "text" name = "url" placeholder = "url" /><br>
+		     <label for = "name">title</label><br>
+         <input type = "text" name = "title" placeholder = "title" /><br>
+		     <label for = "name">description</label><br>
+         <input type = "text" name = "description" placeholder = "description" /><br>
+		     <label for = "name">time</label><br>
+         <input type = "text" name = "time" placeholder = "time" /><br>
+		     <label for = "name">category</label><br>
+         <input type = "text" name = "category" placeholder = "category" /><br>
+         <input type = "submit" value = "Submit" />
+      </form>
+
+   </body>
 </html>
